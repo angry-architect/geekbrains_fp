@@ -5,19 +5,19 @@ import java.util.function.Function;
 
 public class Monad<A> {
 
-   private final A value;
+    private final A value;
 
-   private Monad(A value) {
-       this.value = value;
-   }
+    private Monad(A value) {
+        this.value = value;
+    }
 
-   public static <A> Monad<A> apply(A value) {
-       return new Monad<>(value);
-   }
+    public static <A> Monad<A> apply(A value) {
+        return new Monad<>(value);
+    }
 
-   <B> Monad<B> flatMap(Function<A, Monad<B>> function) {
-       return function.apply(value);
-   }
+    <B> Monad<B> flatMap(Function<A, Monad<B>> function) {
+        return function.apply(value);
+    }
 
     @Override
     public boolean equals(Object o) {
